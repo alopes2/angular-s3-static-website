@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: 21
 
-      - name: Build
+      - name: Install dependencies
         run: npm install
 
       - name: Build
