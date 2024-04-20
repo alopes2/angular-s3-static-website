@@ -40,4 +40,4 @@ jobs:
         run: npm run build
 
       - name: Deploy to S3
-        run: aws s3 cp dist/angular-s3-static-website/browser/ s3://angular-s3-static-website
+        run: aws s3 sync dist/angular-s3-static-website/browser/ s3://angular-s3-static-website
