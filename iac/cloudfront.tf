@@ -61,7 +61,7 @@ resource "aws_cloudfront_cache_policy" "website" {
 
   parameters_in_cache_key_and_forwarded_to_origin {
     headers_config {
-      header_behavior = "allViewer"
+      header_behavior = "none"
     }
     cookies_config {
       cookie_behavior = "all"
