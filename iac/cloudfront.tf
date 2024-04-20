@@ -58,14 +58,14 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 resource "aws_cloudfront_origin_request_policy" "website_origin_request_policy" {
   name = "origin_request_policy"
   headers_config {
-    header_behavior = ["allViewerAndWhitelistCloudFront"]
+    header_behavior = "allViewerAndWhitelistCloudFront"
   }
 
   cookies_config {
-    cookie_behavior = ["all"]
+    cookie_behavior = "all"
   }
 
   query_strings_config {
-    query_string_behavior = ["all"]
+    query_string_behavior = "all"
   }
 }
