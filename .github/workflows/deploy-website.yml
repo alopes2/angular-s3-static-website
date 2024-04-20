@@ -28,16 +28,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
 
-      # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
       - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
           node-version: 21
 
-      # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+      - name: Build
+        run: npm install
+
       - name: Build
         run: npm run build
 
-      # Checks that all Terraform configuration files adhere to a canonical format
       - name: Deploy to S3
         run: aws s3 cp dist/angular-s3-static-website/browser/ s3://angular-s3-static-website
