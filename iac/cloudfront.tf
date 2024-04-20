@@ -53,8 +53,6 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   viewer_certificate {
     cloudfront_default_certificate = true
   }
-
-
 }
 
 # Sends to the origin and caches it
@@ -71,6 +69,7 @@ resource "aws_cloudfront_cache_policy" "website" {
     query_strings_config {
       query_string_behavior = "all"
     }
+  }
 }
 
 # Sends to the origin but doesn't cache it
@@ -88,4 +87,9 @@ resource "aws_cloudfront_cache_policy" "website" {
 #   query_strings_config {
 #     query_string_behavior = "all"
 #   }
+# }
+
+# If CORS is needed, add this
+# data "aws_cloudfront_response_headers_policy" "cors_response_headers_policy" {
+#   name = "CORS-With-Preflight"
 # }
