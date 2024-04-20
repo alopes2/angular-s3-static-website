@@ -39,6 +39,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     min_ttl                = 0
     default_ttl            = 3600
     max_ttl                = 86400
+
   }
 
   price_class = "PriceClass_100"
@@ -53,12 +54,14 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   viewer_certificate {
     cloudfront_default_certificate = true
   }
+
+
 }
 
 resource "aws_cloudfront_origin_request_policy" "website_origin_request_policy" {
   name = "origin_request_policy"
   headers_config {
-    header_behavior = "allViewerAndWhitelistCloudFront"
+    header_behavior = "allViewer"
   }
 
   cookies_config {
