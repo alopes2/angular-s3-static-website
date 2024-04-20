@@ -39,7 +39,7 @@ data "aws_iam_policy_document" "bucket_policy" {
     ]
 
     resources = [
-      "arn:aws:s3:::angular-s3-static-website/*"
+      "arn:aws:s3:::${aws_s3_bucket.website.bucket}/*"
     ]
   }
 }
