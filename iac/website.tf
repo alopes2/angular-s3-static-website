@@ -17,16 +17,6 @@ resource "aws_s3_bucket_website_configuration" "website_configuration" {
   error_document {
     key = "index.html"
   }
-
-  routing_rule {
-    condition {
-      key_prefix_equals = "docs/"
-    }
-    redirect {
-      replace_key_prefix_with = "index.html"
-    }
-  }
-
 }
 
 data "aws_iam_policy_document" "bucket_policy" {
